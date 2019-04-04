@@ -1,6 +1,8 @@
 package classes;
 
-public class Phone {
+import java.io.Serializable;
+
+public class Phone implements Serializable {
     private int phoneId;
     private String number;
     private int userId;

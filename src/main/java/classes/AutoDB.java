@@ -34,8 +34,11 @@ public class AutoDB {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, autoId);
             ResultSet resultSet = statement.executeQuery();
-            if(!getAutosOfResultSet(resultSet).isEmpty())
+            ArrayList<Auto> autos = getAutosOfResultSet(resultSet);
+            if(autos.size() > 0){
                 auto = (getAutosOfResultSet(resultSet)).get(0);
+            }
+
 
         } catch (SQLException e) {
             e.printStackTrace();

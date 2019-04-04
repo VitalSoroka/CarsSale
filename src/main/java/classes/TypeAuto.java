@@ -1,6 +1,8 @@
 package classes;
 
-public class TypeAuto {
+import java.io.Serializable;
+
+public class TypeAuto implements Serializable {
     private int typeAutoId;
     private String name;
 

@@ -1,9 +1,10 @@
 package classes;
 
+import java.io.Serializable;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class User {
+public class User  implements Serializable {
     private int userId;
     private String name;
     private String lastname;

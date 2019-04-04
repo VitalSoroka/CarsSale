@@ -1,6 +1,8 @@
 package classes;
 
-public class Auto {
+import java.io.Serializable;
+
+public class Auto implements Serializable {
     private int autoId;
     private int yearOfIssue;
     private String nameModel;
@@ -15,6 +17,8 @@ public class Auto {
     private int userId;
     private int typeAutoId;
     private int brandId;
+    private Brand brand = null;
+    private TypeAuto typeAuto = null;
 
     public int getAutoId() {
         return autoId;
@@ -70,6 +74,14 @@ public class Auto {
 
     public int getBrandId() {
         return brandId;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public TypeAuto getTypeAuto() {
+        return typeAuto;
     }
 
     public void setAutoId(int autoId) {
@@ -128,4 +140,11 @@ public class Auto {
         this.brandId = brandId;
     }
 
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+    public void setTypeAuto(TypeAuto typeAuto) {
+        this.typeAuto = typeAuto;
+    }
 }

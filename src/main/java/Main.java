@@ -1,3 +1,4 @@
+import classes.AutoDB;
 import classes.User;
 import classes.UserDB;
 
@@ -9,5 +10,6 @@ public class Main {
         for (User user : users) {
             System.out.println(user.getName());
         }
+        System.out.println(AutoDB.select(1).getBrandId());
     }
 }
