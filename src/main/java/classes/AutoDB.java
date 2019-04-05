@@ -36,7 +36,7 @@ public class AutoDB {
             ResultSet resultSet = statement.executeQuery();
             ArrayList<Auto> autos = getAutosOfResultSet(resultSet);
             if(autos.size() > 0){
-                auto = (getAutosOfResultSet(resultSet)).get(0);
+                auto = autos.get(0);
             }
 
 

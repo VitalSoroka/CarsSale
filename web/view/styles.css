@@ -22,3 +22,5 @@
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: #007bff !important;
 }
+
+#formLogin{padding: 15px; min-width:300px;}

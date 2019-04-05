@@ -11,50 +11,70 @@
 <html>
 <head>
 
-  <link rel="stylesheet" href="bootstrap.css">
-  <link rel="stylesheet" href="bootstrap-grid.css">
-  <link rel="stylesheet" href="bootstrap-reboot.css">
-  <link rel="stylesheet" href="bootstrap.min.css">
-  <link rel="stylesheet" href="bootstrap-grid.min.css">
-  <link rel="stylesheet" href="bootstrap-reboot.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link href="view/styles.css" rel="stylesheet">
   <title>Home</title>
+  <style>
+    .data{
+      margin-top: 60px;
+    }
+    .white{
+      background-color: white;
+    }
+
+  </style>
 
 
 </head>
 <body>
-<div class="">
-  <nav class=" container-fluid navbar navbar-expand-sm bg-dark navbar-dark">
-    <!-- Brand/logo -->
-    <ul class="col navbar-nav ">
-      <li class="nav-item">
-        <a class="col- nav-link active " href="/start">Главная</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link a" href="/login">Оставить Обьявление</a>
-      </li>
-    </ul>
-  </nav>
-</div>
-<div>
-  <table>
-   <c:forEach var="auto" items="${autos}">
-     <tr>
-       <td>
-         <p>Марка  ${auto.brand.name}</p>
-         <p>Модель  ${auto.nameModel}</p>
-         <p>Цена  ${auto.cost}</p>
-         <p>Цвет ${auto.color}</p>
-         <p>Пробег ${auto.mileage}</p>
-         <p>${auto.autoId}</p>
-         <a href="/auto?auto_id=${auto.autoId}">перейти к автомобилю</a>>
-         <hr>
+  <div >
+    <nav class="navbar navbar-primary white navbar-fixed-top" >
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/start">Car Sale</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class=""><a href="#">Home</a></li>
+            <li class=""><a href="#">Locations</a></li>
+            <li class=""><a href="#">About</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/login" data-toggle="modal" data-target='#modalRegister'>Account</a></li>
+          </ul>
 
-       </td>
-     </tr>
-   </c:forEach>
-  </table>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="data">
+    <c:forEach var = "auto" items="${autos}">
+      <div class="col-md-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-2x"></i>${auto.brand.name} ${auto.nameModel}</h3>
+          </div>
+          <div class="panel-body">
+            <img src=""></a>
+            <ul>
+              <li>Brand : ${auto.brand.name} </li>
+              <li><a href="/auto?auto_id=${auto.autoId}">to auto</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </c:forEach>
+  </div>
 
-</div>
+
 
 </body>
 

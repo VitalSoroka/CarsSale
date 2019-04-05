@@ -12,9 +12,47 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+        .mrg-top{
+            margin-top: 60px;
+        }
+        .white{
+            background-color: white;
+        }
+    </style>
+    <link href="styles.css" rel="stylesheet" id = "mystyles">
 </head>
 <body>
-<div class="container">
+<div >
+    <nav class="navbar navbar-primary white navbar-fixed-top " >
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/start">Car Sale</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class=""><a href="#">Home</a></li>
+                    <li class=""><a href="#">Locations</a></li>
+                    <li class=""><a href="#">About</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/login" data-toggle="modal" data-target='#modalRegister'>Account</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+
+<div class="container mrg-top">
     <div class="row centered-form">
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
             <div class="panel panel-default">
