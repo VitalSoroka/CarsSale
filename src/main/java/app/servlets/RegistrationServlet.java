@@ -14,7 +14,7 @@ public class RegistrationServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/view/createAnAd.jsp").forward(request,response);
+        getServletContext().getRequestDispatcher("/view/myAuto.jsp").forward(request,response);
 
     }
 }
