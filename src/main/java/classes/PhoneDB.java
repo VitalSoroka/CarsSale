@@ -2,7 +2,7 @@ package classes;
 
 import java.sql.*;
 import java.util.ArrayList;
-
+@SuppressWarnings("Duplicates")
 public class PhoneDB {
     public static ArrayList<Phone> select() {
         ArrayList<Phone> phones = new ArrayList<>();
@@ -21,24 +21,25 @@ public class PhoneDB {
         }
         return phones;
     }
-
-    public static Phone selectByUserId(int userId){
-        Phone phone = null;
+@SuppressWarnings("Duplicates")
+    public static ArrayList<Phone> selectByUserId(int userId){
+         ArrayList<Phone> phones = new ArrayList<>();
         try (Connection connection = Connector.getConnectToMyDbAuto()) {
             String sql = "select phone_id, number, user_id from phone where  user_id = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, userId);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()){
-                phone = new Phone();
+                Phone phone = new Phone();
                 phone.setPhoneId(resultSet.getInt("phone_id"));
                 phone.setNumber(resultSet.getString("number"));
                 phone.setUserId(resultSet.getInt("user_id"));
+                phones.add(phone);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return phone;
+        return phones;
     }
 
     public static int insert(Phone phone){

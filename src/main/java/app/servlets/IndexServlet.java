@@ -22,7 +22,6 @@ public class IndexServlet extends HttpServlet {
         for (int i = 0; i<autos.size(); i++) {
             Auto auto = autos.get(i);
             Brand brand = BrandDB.select(auto.getBrandId());
-            System.out.println(auto.getBrandId());
             if (brand == null) {
                 brand = new Brand();
                 brand.setName("...");
@@ -30,10 +29,6 @@ public class IndexServlet extends HttpServlet {
             auto.setBrand(brand);
 
         }
-        for (Auto auto : autos) {
-            System.out.println(auto.getBrand().getName());
-        }
-        System.out.println("Успешно");
         request.setAttribute("autos", autos);
         getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
 

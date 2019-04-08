@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: vital
@@ -44,7 +45,7 @@
                     <li class=""><a href="#">About</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/login" data-toggle="modal" data-target='#modalRegister'>Account</a></li>
+                    <li><a href="/login" data-toggle="modal" data-target='#modalRegister'>Войти</a></li>
                 </ul>
 
             </div>
@@ -58,13 +59,17 @@
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Please sign up for Bootsnipp <small>It's free!</small></h3>
+                    <h3 class="panel-title">Вход в аккаунт</h3>
                 </div>
                 <div class="panel-body">
                     <form role="form" method="post" action="/login">
-
                         <div class="form-group">
-                            <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
+                            <c:if test="${message != null}">
+                            <p>${message}</p>
+                            </c:if>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="login" id="email" class="form-control input-sm" placeholder="Email Address">
                         </div>
 
 

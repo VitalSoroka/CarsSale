@@ -3,12 +3,11 @@
 <%--
   Created by IntelliJ IDEA.
   User: vital
-  Date: 04.04.2019
-  Time: 23:04
+  Date: 08.04.2019
+  Time: 10:34
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <html>
 <head>
     <title>Title</title>
@@ -62,7 +61,7 @@
                     <h3 class="panel-title">Добаление объявления</h3>
                 </div>
                 <div class="panel-body">
-                    <form role="form" method="post" action="/createAuto">
+                    <form role="form" method="post" action="/updateAuto">
                         <input type="hidden" value="${password}" name="password">
                         <input type="hidden" value="${account_id}" name="account_id">
                         <div class="row">
@@ -78,7 +77,13 @@
                                 <div class="form-group">
                                     <select class="form-control input-sm" name="brand_id">
                                         <C:forEach var="brand" items="${brands}">
-                                            <option value="${brand.brandId}">${brand.name}</option>
+                                            <c:if test="${auto.brandId == brand.brandId}">
+                                                <option selected value="${brand.brandId}">${brand.name}</option>
+                                            </c:if>
+                                            <c:if test="${auto.brandId != brand.brandId}">
+                                                <option value="${brand.brandId}">${brand.name}</option>
+                                            </c:if>
+
                                         </C:forEach>
                                     </select>
                                 </div>
@@ -91,7 +96,7 @@
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="name_model" id="name_model" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="name_model" id="name_model" class="form-control input-sm" value="${auto.nameModel}">
                                 </div>
                             </div>
                         </div>
@@ -101,7 +106,7 @@
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="cost" id="cost" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="cost" id="cost" class="form-control input-sm" value="${auto.cost}">
                                 </div>
                             </div>
                         </div>
@@ -111,7 +116,7 @@
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="year_of_issue" id="year_of_issue" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="year_of_issue" id="year_of_issue" class="form-control input-sm" value="${auto.yearOfIssue}">
                                 </div>
                             </div>
                         </div>
@@ -121,7 +126,7 @@
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="color" id="color" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="color" id="color" class="form-control input-sm" value="${auto.color}">
                                 </div>
                             </div>
                         </div>
@@ -131,7 +136,7 @@
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="mileage" id="mileage" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="mileage" id="mileage" class="form-control input-sm" value="${auto.mileage}">
                                 </div>
                             </div>
                         </div>
@@ -141,7 +146,7 @@
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="type_fuel" id="type_fuel" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="type_fuel" id="type_fuel" class="form-control input-sm" value="${auto.typeFuel}">
                                 </div>
                             </div>
                         </div>
@@ -151,7 +156,7 @@
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="engine_power" id="engine_power" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="engine_power" id="engine_power" class="form-control input-sm" value="${auto.enginePower}">
                                 </div>
                             </div>
                         </div>
@@ -161,7 +166,7 @@
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="engine_volume" id="engine_volume" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="engine_volume" id="engine_volume" class="form-control input-sm" value="${auto.engineVolume}">
                                 </div>
                             </div>
                         </div>
@@ -171,7 +176,7 @@
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="drive_unit" id="drive_unit" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="drive_unit" id="drive_unit" class="form-control input-sm" value="${auto.driveUnit}">
                                 </div>
                             </div>
                         </div>
@@ -181,12 +186,12 @@
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="transmission" id="transmission" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="transmission" id="transmission" class="form-control input-sm" value="${auto.transmission}">
                                 </div>
                             </div>
                         </div>
-
-                        <input type="submit" value="Создать" class="btn btn-info btn-block">
+                        <input type="hidden" value="${auto.autoId}" name="auto_id">
+                        <input type="submit" value="Update" class="btn btn-info btn-block">
 
                     </form>
                 </div>
@@ -196,4 +201,3 @@
 </div>
 </body>
 </html>
-

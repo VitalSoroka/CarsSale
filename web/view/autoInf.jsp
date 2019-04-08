@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: vital
@@ -57,38 +58,28 @@
         <!--Windows-->
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-2x"></i> Microsoft Windows</h3>
+                <h3 class="panel-title"><i class="fa fa-2x"></i>${auto.brand.name} ${auto.nameModel}</h3>
             </div>
             <div class="panel-body">
                 <img src=""></a>
                 <ul>
-                    <li>Developer: <a href="http://www.microsoft.com/en-us/default.aspx" target="_blank">Microsoft</a></li>
-                    <li>Written in: Assembly, C, C++</li>
-                    <li>OS family: Windows 9x, Windows CE and Windows NT</li>
-                    <li>Working state: Publicly released</li>
-                    <li>Source model: Closed / Shared source</li>
-                    <li>Initial release: November 20, 1985; 28 years ago, as Windows 1.0</li>
-                    <li>Marketing target: Personal computing</li>
-                    <li>Available in: 137 languages</li>
-                    <li>Update method: Windows Update, Windows Anytime Upgrade, Windows Store, WSUS</li>
-                    <li>Package manager: Windows Installer (.msi), Windows Store (.appx)</li>
-                    <li>Supported platforms: ARM, IA-32, Itanium, x86-64</li>
-                    <li>Kernel type: Windows NT family: Hybrid, Windows 9x and earlier: Monolithic (MS-DOS)</li>
-                    <li>Default user interface:	Windows shell</li>
-                    <li>License: Proprietary commercial software</li>
-                    <li><i class="fa fa-external-link"></i> Official website: <a href="http://windows.microsoft.com/" target="_blank">windows.microsoft.com</a></li>
-                    <li><i class="fa fa-external-link"></i> Source: <a href="http://en.wikipedia.org/wiki/Microsoft_Windows" target="_blank">en.wikipedia.org/wiki/Microsoft_Windows</a></li>
+                    <li>Цена: ${auto.cost} бел. рублей</li>
+                    <li>Год выпуска: ${auto.yearOfIssue}</li>
+                    <li>Пробег: ${auto.mileage}</li>
+                    <li>Тип топлива: ${auto.typeFuel}</li>
+                    <li>Цвет: ${auto.color}</li>
+                    <li>Мощность дигателя: ${auto.enginePower} л. c.</li>
+                    <li>Объём двгателя: ${auto.engineVolume} куб. см</li>
+                    <li>Привод: ${auto.driveUnit}</li>
+                    <li>Коробка передач: ${auto.transmission}</li>
+                    <p>                                </p>
+                    <li>Владелец: ${user.name} ${user.lastname}</li>
+                    <li>Контакты</li>
+                    <c:forEach var="phone" items="${phones}">
+                        <p>${phone.number}</p>
+                    </c:forEach>
                 </ul>
-                <form>
-                    <div class="row">
-                        <div class="col-md-6 ">
-                            <input type="button" value="Delete" class="btn btn-info btn-block col-md-3" onclick='location.href = "/registration"'>
-                        </div>
-                        <div class="col-md-6 ">
-                            <input type="button" value="Update" class="btn btn-info btn-block col-md-3" onclick='location.href = "/registration"'>
-                        </div>
-                    </div>
-                </form>
+
             </div>
 
         </div>

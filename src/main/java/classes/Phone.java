@@ -7,6 +7,14 @@ public class Phone implements Serializable {
     private String number;
     private int userId;
 
+    public Phone(String number, int userId) {
+        this.number = number;
+        this.userId = userId;
+    }
+
+    public Phone() {
+    }
+
     public int getPhoneId() {
         return phoneId;
     }

@@ -6,19 +6,17 @@ public class Auto implements Serializable {
     private int autoId;
     private int yearOfIssue;
     private String nameModel;
-    private float cost;
+    private double cost;
     private String color;
     private int mileage;
     private String typeFuel;
     private int enginePower;
-    private float engineVolume;
+    private double engineVolume;
     private String driveUnit;
     private String transmission;
     private int userId;
-    private int typeAutoId;
     private int brandId;
     private Brand brand = null;
-    private TypeAuto typeAuto = null;
 
     public int getAutoId() {
         return autoId;
@@ -32,7 +30,7 @@ public class Auto implements Serializable {
         return nameModel;
     }
 
-    public float getCost() {
+    public double getCost() {
         return cost;
     }
 
@@ -52,7 +50,7 @@ public class Auto implements Serializable {
         return enginePower;
     }
 
-    public float getEngineVolume() {
+    public double getEngineVolume() {
         return engineVolume;
     }
 
@@ -68,9 +66,6 @@ public class Auto implements Serializable {
         return userId;
     }
 
-    public int getTypeAutoId() {
-        return typeAutoId;
-    }
 
     public int getBrandId() {
         return brandId;
@@ -79,9 +74,24 @@ public class Auto implements Serializable {
     public Brand getBrand() {
         return brand;
     }
+    public Auto(){
 
-    public TypeAuto getTypeAuto() {
-        return typeAuto;
+    };
+
+    public Auto(int yearOfIssue, String nameModel, double cost, String color, int mileage, String typeFuel,
+                int enginePower, double engineVolume, String driveUnit, String transmission, int userId, int brandId) {
+        this.yearOfIssue = yearOfIssue;
+        this.nameModel = nameModel;
+        this.cost = cost;
+        this.color = color;
+        this.mileage = mileage;
+        this.typeFuel = typeFuel;
+        this.enginePower = enginePower;
+        this.engineVolume = engineVolume;
+        this.driveUnit = driveUnit;
+        this.transmission = transmission;
+        this.userId = userId;
+        this.brandId = brandId;
     }
 
     public void setAutoId(int autoId) {
@@ -96,7 +106,7 @@ public class Auto implements Serializable {
         this.nameModel = nameModel;
     }
 
-    public void setCost(float cost) {
+    public void setCost(double cost) {
         this.cost = cost;
     }
 
@@ -116,7 +126,7 @@ public class Auto implements Serializable {
         this.enginePower = enginePower;
     }
 
-    public void setEngineVolume(float engineVolume) {
+    public void setEngineVolume(double engineVolume) {
         this.engineVolume = engineVolume;
     }
 
@@ -132,9 +142,6 @@ public class Auto implements Serializable {
         this.userId = userId;
     }
 
-    public void setTypeAutoId(int typeAutoId) {
-        this.typeAutoId = typeAutoId;
-    }
 
     public void setBrandId(int brandId) {
         this.brandId = brandId;
@@ -144,7 +151,4 @@ public class Auto implements Serializable {
         this.brand = brand;
     }
 
-    public void setTypeAuto(TypeAuto typeAuto) {
-        this.typeAuto = typeAuto;
-    }
 }

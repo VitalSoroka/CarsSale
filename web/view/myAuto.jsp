@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: vital
@@ -39,7 +40,7 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="#">Home</a></li>
+                    <li class=""><a href="/createAuto?password=${password}&account_id=${account_id}&message=null">Добавить обьявление</a></li>
                     <li class=""><a href="#">Locations</a></li>
                     <li class=""><a href="#">About</a></li>
                 </ul>
@@ -53,75 +54,52 @@
 </div>
 
 <div class="container col-md-6 col-md-offset-3 mrg-top">
+    <c:forEach var="auto" items="${autos}">
         <div class="col-md-12 ">
             <!--Windows-->
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-2x"></i> Microsoft Windows</h3>
+                    <h3 class="panel-title"><i class="fa fa-2x"></i>${auto.brand.name} ${auto.nameModel}</h3>
                 </div>
                 <div class="panel-body">
                     <img src=""></a>
                     <ul>
-                        <li>Developer: <a href="http://www.microsoft.com/en-us/default.aspx" target="_blank">Microsoft</a></li>
-                        <li>Written in: Assembly, C, C++</li>
-                        <li>OS family: Windows 9x, Windows CE and Windows NT</li>
-                        <li>Working state: Publicly released</li>
-                        <li>Source model: Closed / Shared source</li>
-                        <li>Initial release: November 20, 1985; 28 years ago, as Windows 1.0</li>
-                        <li>Marketing target: Personal computing</li>
-                        <li>Available in: 137 languages</li>
-                        <li>Update method: Windows Update, Windows Anytime Upgrade, Windows Store, WSUS</li>
-                        <li>Package manager: Windows Installer (.msi), Windows Store (.appx)</li>
-                        <li>Supported platforms: ARM, IA-32, Itanium, x86-64</li>
-                        <li>Kernel type: Windows NT family: Hybrid, Windows 9x and earlier: Monolithic (MS-DOS)</li>
-                        <li>Default user interface:	Windows shell</li>
-                        <li>License: Proprietary commercial software</li>
-                        <li><i class="fa fa-external-link"></i> Official website: <a href="http://windows.microsoft.com/" target="_blank">windows.microsoft.com</a></li>
-                        <li><i class="fa fa-external-link"></i> Source: <a href="http://en.wikipedia.org/wiki/Microsoft_Windows" target="_blank">en.wikipedia.org/wiki/Microsoft_Windows</a></li>
+                        <li>Цена: ${auto.cost} бел. рублей</li>
+                        <li>Год выпуска: ${auto.yearOfIssue}</li>
+                        <li>Пробег: ${auto.mileage}</li>
+                        <li>Тип топлива: ${auto.typeFuel}</li>
+                        <li>Цвет: ${auto.color}</li>
+                        <li>Мощность дигателя: ${auto.enginePower} л. c.</li>
+                        <li>Объём двгателя: ${auto.engineVolume} куб. см</li>
+                        <li>Привод: ${auto.driveUnit}</li>
+                        <li>Коробка передач: ${auto.transmission}</li>
                     </ul>
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6 ">
-                                <input type="button" value="Delete" class="btn btn-info btn-block col-md-3" onclick='location.href = "/registration"'>
-                            </div>
-                            <div class="col-md-6 ">
-                                <input type="button" value="Update" class="btn btn-info btn-block col-md-3" onclick='location.href = "/registration"'>
-                            </div>
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <form method="post" action="/deleteAuto">
+                                <input type="hidden" value="${password}" name="password">
+                                <input type="hidden" value="${account_id}" name="account_id">
+                                <input type="hidden" value="${auto.autoId}" name = "auto_id">
+                                <input type="submit" value="Delete"  class="btn btn-info btn-block col-md-3">
+                            </form>
                         </div>
-                    </form>
+                        <div class="col-md-6 ">
+                            <form method="get" action="/updateAuto">
+                                <input type="hidden" value="${password}" name="password">
+                                <input type="hidden" value="${account_id}" name="account_id">
+                                <input type="hidden" value="${auto.autoId}" name = "auto_id">
+                                <input type="submit" value="Update"  class="btn btn-info btn-block col-md-3" >
+                            </form>
+                        </div>
+
+                    </div>
                 </div>
 
             </div>
 
         </div>
-        <!--OS X-->
-        <div class="col-md-12">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-2x"></i> Apple Mac OS X</h3>
-                </div>
-                <div class="panel-body">
-                    <img src=""></a>
-                    <ul>
-                        <li>Developer: <a href="http://www.apple.com" target="_blank">Apple Inc.</a></li>
-                        <li>Written in: Objective-C, C, C++</li>
-                        <li>OS family: Mac OS, Unix</li>
-                        <li>Working state: Current</li>
-                        <li>Source model: Closed source(with open source components)</li>
-                        <li>Initial release: March 24, 2001</li>
-                        <li>Marketing target: Personal computing</li>
-                        <li>Available in: Multi-lingual</li>
-                        <li>Update method: Apple Software Update, Mac App Store</li>
-                        <li>Supported platforms: x86-64: versions 10.4.7 through 10.9.3, IA-32: versions 10.4.4 through 10.6.8, PowerPC: versions 10.0 through 10.5.8</li>
-                        <li>Kernel type: Hybrid (XNU)</li>
-                        <li>Default user interface:	Graphical (Aqua)</li>
-                        <li>License: OS X EULA</li>
-                        <li><i class="fa fa-external-link"></i> Official website: <a href="http://www.apple.com/osx" target="_blank">apple.com/osx</a></li>
-                        <li><i class="fa fa-external-link"></i> Source: <a href="http://en.wikipedia.org/wiki/OS_X" target="_blank">en.wikipedia.org/wiki/OS_X</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    </c:forEach>
+
 </div>
 
 </body>

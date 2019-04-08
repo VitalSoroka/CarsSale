@@ -22,6 +22,25 @@ public class AccountDB {
         return accounts;
     }
 
+    public static Account select(int accountId){
+        Account account = null;
+        try (Connection connection = Connector.getConnectToMyDbAuto()) {
+            String sql = "select account_id, login,password from account where account_id = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, accountId);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()){
+                account = new Account();
+                account.setAccountId(resultSet.getInt("account_id"));
+                account.setLogin(resultSet.getString("login"));
+                account.setPassword(resultSet.getString("password"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return account;
+    }
+
     public static Account selectByLogin(String login){
         Account account = null;
         try (Connection connection = Connector.getConnectToMyDbAuto()) {

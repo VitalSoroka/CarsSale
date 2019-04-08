@@ -25,7 +25,30 @@ public class UserDB {
         return users;
     }
     @SuppressWarnings("Duplicates")
-    public static User select(int accountId){
+    public static User select(int userId){
+        User user = null;
+        try (Connection connection = Connector.getConnectToMyDbAuto()) {
+            String sql = "select  user_id, name, lastname, account_id from user where user_id = ?";
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                statement.setInt(1, userId);
+                ResultSet resultSet = statement.executeQuery();
+                if(resultSet.next()){
+                    user = new User();
+                    user.setUserId(resultSet.getInt("user_id"));
+                    user.setName(resultSet.getString("name"));
+                    user.setLastname(resultSet.getString("lastname"));
+                    user.setAccountId(resultSet.getInt("account_id"));
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
+
+    }
+
+    public static User selectByAccountId(int accountId){
         User user = null;
         try (Connection connection = Connector.getConnectToMyDbAuto()) {
             String sql = "select  user_id, name, lastname, account_id from user where account_id = ?";

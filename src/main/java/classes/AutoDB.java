@@ -13,7 +13,7 @@ public class AutoDB {
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery("select auto_id, year_of_issue, name_model, cost," +
                         " color, mileage, type_fuel, engine_power, engine_volume, drive_unit, transmission, user_id, " +
-                        "type_auto_id, brand_id " +
+                        " brand_id " +
                         "from auto");
                 autos = getAutosOfResultSet(resultSet);
             } catch (SQLException e) {
@@ -29,7 +29,7 @@ public class AutoDB {
         Auto auto = null;
         try (Connection connection = Connector.getConnectToMyDbAuto()) {
             String sql = "select auto_id, year_of_issue, name_model, cost, color, mileage, type_fuel, engine_power," +
-                    " engine_volume, drive_unit, transmission, user_id, type_auto_id, brand_id " +
+                    " engine_volume, drive_unit, transmission, user_id, brand_id " +
                     "from auto where auto_id = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, autoId);
@@ -68,7 +68,7 @@ public class AutoDB {
         ArrayList<Auto> autos = new ArrayList<>();
         String sql =  "select auto_id, year_of_issue, name_model, cost," +
                 " color, mileage, type_fuel, engine_power, engine_volume, drive_unit, transmission, user_id, " +
-                "type_auto_id, brand_id " +
+                " brand_id " +
                 "from auto limit ?, ?";
         try (Connection connection = Connector.getConnectToMyDbAuto()) {
             if(offset < getRowCount()){
@@ -91,7 +91,7 @@ public class AutoDB {
         ArrayList<Auto> autos = new ArrayList<>();
         try (Connection connection = Connector.getConnectToMyDbAuto()) {
             String sql = "select auto_id, year_of_issue, name_model, cost, color, mileage, type_fuel, engine_power," +
-                    " engine_volume, drive_unit, transmission, user_id, type_auto_id, brand_id " +
+                    " engine_volume, drive_unit, transmission, user_id,  brand_id " +
                     "from auto where user_id = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, userId);
@@ -107,23 +107,22 @@ public class AutoDB {
     public static int insert(Auto auto){
         try (Connection connection = Connector.getConnectToMyDbAuto()) {
             String sql = "insert into auto (auto_id, year_of_issue, name_model, cost, color, mileage, type_fuel," +
-                    " engine_power, engine_volume, drive_unit, transmission, user_id, type_auto_id, brand_id)" +
-                    "values (?,?,?,?,?,?,?,?,?,?, ?,?,?,?)";
+                    " engine_power, engine_volume, drive_unit, transmission, user_id, brand_id)" +
+                    "values (?,?,?,?,?,?,?,?,?,?, ?,?,?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, auto.getAutoId());
             statement.setInt(2, auto.getYearOfIssue());
             statement.setString(3, auto.getNameModel());
-            statement.setFloat(4, auto.getCost());
+            statement.setDouble(4, auto.getCost());
             statement.setString(5, auto.getColor());
             statement.setInt(6, auto.getMileage());
             statement.setString(7, auto.getTypeFuel());
             statement.setInt(8, auto.getEnginePower());
-            statement.setFloat(9, auto.getEngineVolume());
+            statement.setDouble(9, auto.getEngineVolume());
             statement.setString(10, auto.getDriveUnit());
             statement.setString(11, auto.getTransmission());
             statement.setInt(12, auto.getUserId());
-            statement.setInt(13, auto.getTypeAutoId());
-            statement.setInt(14, auto.getBrandId());
+            statement.setInt(13, auto.getBrandId());
             return statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -134,26 +133,23 @@ public class AutoDB {
     @SuppressWarnings("Duplicates")
     public static int update(Auto auto){
         try (Connection connection = Connector.getConnectToMyDbAuto()) {
-            String sql = "update auto set auto_id = ?, year_of_issue = ?, name_model = ?, cost= ?, color = ?," +
-                    " mileage = ?, type_fuel = ?, engine_power = ?, engine_volume = ?, drive_unit = ?, transmission = ?," +
-                    " user_id = ?, type_auto_id = ?, brand_id = ?" +
-                    "where auto_id = ?";
+            String sql = "update auto set year_of_issue=?, name_model=?, cost=?, color=?," +
+                    " mileage=?, type_fuel=?, engine_power=?, engine_volume=?, drive_unit=?, transmission=?," +
+                    " user_id=?, brand_id=? where auto_id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, auto.getAutoId());
-            statement.setInt(2, auto.getYearOfIssue());
-            statement.setString(3, auto.getNameModel());
-            statement.setFloat(4, auto.getCost());
-            statement.setString(5, auto.getColor());
-            statement.setInt(6, auto.getMileage());
-            statement.setString(7, auto.getTypeFuel());
-            statement.setInt(8, auto.getEnginePower());
-            statement.setFloat(9, auto.getEngineVolume());
-            statement.setString(10, auto.getDriveUnit());
-            statement.setString(11, auto.getTransmission());
-            statement.setInt(12, auto.getUserId());
-            statement.setInt(13, auto.getTypeAutoId());
-            statement.setInt(14, auto.getBrandId());
-            statement.setInt(15, auto.getAutoId());
+            statement.setInt(1, auto.getYearOfIssue());
+            statement.setString(2, auto.getNameModel());
+            statement.setDouble(3, auto.getCost());
+            statement.setString(4, auto.getColor());
+            statement.setInt(5, auto.getMileage());
+            statement.setString(6, auto.getTypeFuel());
+            statement.setInt(7, auto.getEnginePower());
+            statement.setDouble(8, auto.getEngineVolume());
+            statement.setString(9, auto.getDriveUnit());
+            statement.setString(10, auto.getTransmission());
+            statement.setInt(11, auto.getUserId());
+            statement.setInt(12, auto.getBrandId());
+            statement.setInt(13, auto.getAutoId());
             return statement.executeUpdate();
 
         } catch (SQLException e) {
@@ -199,16 +195,15 @@ public class AutoDB {
                 auto.setAutoId(resultSet.getInt("auto_id"));
                 auto.setYearOfIssue(resultSet.getInt("year_of_issue"));
                 auto.setNameModel(resultSet.getString("name_model"));
-                auto.setCost(resultSet.getFloat("cost"));
+                auto.setCost(resultSet.getDouble("cost"));
                 auto.setColor(resultSet.getString("color"));
                 auto.setMileage(resultSet.getInt("mileage"));
                 auto.setTypeFuel(resultSet.getString("type_fuel"));
                 auto.setEnginePower(resultSet.getInt("engine_power"));
-                auto.setEngineVolume(resultSet.getFloat("engine_volume"));
+                auto.setEngineVolume(resultSet.getDouble("engine_volume"));
                 auto.setDriveUnit(resultSet.getString("drive_unit"));
                 auto.setTransmission(resultSet.getString("transmission"));
                 auto.setUserId(resultSet.getInt("user_id"));
-                auto.setTypeAutoId(resultSet.getInt("type_auto_id"));
                 auto.setBrandId(resultSet.getInt("brand_id"));
                 autos.add(auto);
             }
