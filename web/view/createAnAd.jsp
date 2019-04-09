@@ -36,16 +36,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/start">Car Sale</a>
+                <a class="navbar-brand" href="/createAuto?password=${password}&account_id=${account_id}&message=null">Car Sale</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class=""><a href="#">Home</a></li>
-                    <li class=""><a href="#">Locations</a></li>
-                    <li class=""><a href="#">About</a></li>
-                </ul>
+
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/login" data-toggle="modal" data-target='#modalRegister'>Account</a></li>
+                    <li><a href="/myAuto?password=${password}&account_id=${account_id}" data-toggle="modal" data-target='#modalRegister'>Account</a></li>
+                    <li><a href="/login" data-toggle="modal" data-target='#modalRegister'>Sign Up</a></li>
                 </ul>
 
             </div>
@@ -59,7 +56,7 @@
         <div class="col-xs-6 col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3 ">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Добаление объявления</h3>
+                    <h3 class="panel-title">Adding ad</h3>
                 </div>
                 <div class="panel-body">
                     <form role="form" method="post" action="/createAuto">
@@ -72,7 +69,7 @@
                                 </C:if>
                             </div >
                             <div class="col-xs-4 col-sm-4 col-md-4">
-                                <p>Марка</p>
+                                <p>Brand</p>
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
@@ -87,106 +84,106 @@
 
                         <div class="row">
                             <div class="col-xs-4 col-sm-4 col-md-4">
-                                <p>Название модели</p>
+                                <p>Model </p>
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="name_model" id="name_model" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="name_model" id="name_model" class="form-control input-sm" >
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-4 col-sm-4 col-md-4">
-                                <p>Цена</p>
+                                <p>Cost ($)</p>
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="cost" id="cost" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="cost" id="cost" class="form-control input-sm" >
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-4 col-sm-4 col-md-4">
-                                <p>Год выпуска</p>
+                                <p>Year of issue</p>
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="year_of_issue" id="year_of_issue" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="year_of_issue" id="year_of_issue" class="form-control input-sm" >
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-4 col-sm-4 col-md-4">
-                                <p>Цвет</p>
+                                <p>Color</p>
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="color" id="color" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="color" id="color" class="form-control input-sm" >
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-4 col-sm-4 col-md-4">
-                                <p>Пробег</p>
+                                <p>Mileage (km)</p>
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="mileage" id="mileage" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="mileage" id="mileage" class="form-control input-sm" >
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-4 col-sm-4 col-md-4">
-                                <p>Тип топлива</p>
+                                <p>Fuel</p>
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="type_fuel" id="type_fuel" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="type_fuel" id="type_fuel" class="form-control input-sm" >
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-4 col-sm-4 col-md-4">
-                                <p>Мощность двигателя</p>
+                                <p>Engine power (hp.)</p>
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="engine_power" id="engine_power" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="engine_power" id="engine_power" class="form-control input-sm" >
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-4 col-sm-4 col-md-4">
-                                <p>Обьем двигателя</p>
+                                <p>Engine Volume (l.)</p>
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="engine_volume" id="engine_volume" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="engine_volume" id="engine_volume" class="form-control input-sm" >
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-4 col-sm-4 col-md-4">
-                                <p>Привод</p>
+                                <p>Drive unit</p>
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="drive_unit" id="drive_unit" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="drive_unit" id="drive_unit" class="form-control input-sm" >
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-4 col-sm-4 col-md-4">
-                                <p>Коробка передач</p>
+                                <p>Transmission</p>
                             </div >
                             <div class="col-xs-8 col-sm-8 col-md-8">
                                 <div class="form-group">
-                                    <input type="text" name="transmission" id="transmission" class="form-control input-sm" placeholder="Brand">
+                                    <input type="text" name="transmission" id="transmission" class="form-control input-sm" >
                                 </div>
                             </div>
                         </div>
 
-                        <input type="submit" value="Создать" class="btn btn-info btn-block">
+                        <input type="submit" value="Add An Ad" class="btn btn-info btn-block">
 
                     </form>
                 </div>

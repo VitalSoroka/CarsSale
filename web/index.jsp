@@ -43,12 +43,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class=""><a href="#">Home</a></li>
-            <li class=""><a href="#">Locations</a></li>
-            <li class=""><a href="#">About</a></li>
+            <li class=""><a href="/start">Home</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/login" data-toggle="modal" data-target='#modalRegister'>Account</a></li>
+            <li><a href="/registration" data-toggle="modal" data-target='#modalRegister'>Registration</a></li>
+            <li><a href="/login" data-toggle="modal" data-target='#modalRegister'>Sign In</a></li>
           </ul>
 
         </div>
@@ -65,8 +64,10 @@
           <div class="panel-body">
             <img src=""></a>
             <ul>
-              <li>Brand : ${auto.brand.name} </li>
-              <li><a href="/auto?auto_id=${auto.autoId}">to auto</a></li>
+              <li>Cost : ${auto.cost} $ </li>
+              <li>Year of issue : ${auto.yearOfIssue}</li>
+              <li>Mileage: ${auto.mileage} km<li>
+              <a href="/auto?auto_id=${auto.autoId}">to auto</a>
             </ul>
           </div>
         </div>

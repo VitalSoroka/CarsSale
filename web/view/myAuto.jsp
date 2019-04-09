@@ -36,16 +36,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/start">Car Sale</a>
+                <a class="navbar-brand" href="/myAuto?password=${password}&account_id=${account_id}">Car Sale</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="/createAuto?password=${password}&account_id=${account_id}&message=null">Добавить обьявление</a></li>
-                    <li class=""><a href="#">Locations</a></li>
-                    <li class=""><a href="#">About</a></li>
+                    <li class=""><a href="/createAuto?password=${password}&account_id=${account_id}&message=null">Add An Ad</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/login" data-toggle="modal" data-target='#modalRegister'>Account</a></li>
+                    <li><a href="/myAuto?password=${password}&account_id=${account_id}" data-toggle="modal" data-target='#modalRegister'>Account</a></li>
+                    <li><a href="/login" data-toggle="modal" data-target='#modalRegister'>Sign Up</a></li>
                 </ul>
 
             </div>
@@ -64,15 +63,15 @@
                 <div class="panel-body">
                     <img src=""></a>
                     <ul>
-                        <li>Цена: ${auto.cost} бел. рублей</li>
-                        <li>Год выпуска: ${auto.yearOfIssue}</li>
-                        <li>Пробег: ${auto.mileage}</li>
-                        <li>Тип топлива: ${auto.typeFuel}</li>
-                        <li>Цвет: ${auto.color}</li>
-                        <li>Мощность дигателя: ${auto.enginePower} л. c.</li>
-                        <li>Объём двгателя: ${auto.engineVolume} куб. см</li>
-                        <li>Привод: ${auto.driveUnit}</li>
-                        <li>Коробка передач: ${auto.transmission}</li>
+                        <li>Cost : ${auto.cost} $</li>
+                        <li>Year of issue: ${auto.yearOfIssue}</li>
+                        <li>Mileage: ${auto.mileage} km</li>
+                        <li>Fuel: ${auto.typeFuel}</li>
+                        <li>Color: ${auto.color}</li>
+                        <li>Engine power: ${auto.enginePower} hp</li>
+                        <li>Engine volume: ${auto.engineVolume} liters</li>
+                        <li>Drive unit: ${auto.driveUnit}</li>
+                        <li>Transmission: ${auto.transmission}</li>
                     </ul>
                     <div class="row">
                         <div class="col-md-6 ">

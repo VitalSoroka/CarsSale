@@ -29,6 +29,9 @@ public class MyAutosServlet extends HttpServlet {
             if(account.getPassword().hashCode() == Integer.parseInt(request.getParameter("password"))){
                 int userId = UserDB.selectByAccountId(Integer.parseInt(sAccountId)).getUserId();
                 ArrayList<Auto> autos = AutoDB.selectByUserId(userId);
+                for(int i = 0; i < autos.size(); i++){
+                    autos.get(i).setBrand(BrandDB.select(autos.get(i).getBrandId()));
+                }
                 request.setAttribute("autos", autos);
                 request.setAttribute("password", account.getPassword().hashCode());
                 request.setAttribute("account_id", account.getAccountId());

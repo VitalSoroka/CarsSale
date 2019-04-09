@@ -40,12 +40,10 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="#">Home</a></li>
-                    <li class=""><a href="#">Locations</a></li>
-                    <li class=""><a href="#">About</a></li>
+                    <li class=""><a href="/start">Home</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/login" data-toggle="modal" data-target='#modalRegister'>Войти</a></li>
+                    <li><a href="/registration" data-toggle="modal" data-target='#modalRegister'>Registration</a></li>
                 </ul>
 
             </div>

@@ -14,7 +14,7 @@ public class RegistrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("first_name");
         String lastName = request.getParameter("last_name");
-        String login = request.getParameter("email");
+        String login = request.getParameter("login");
         String phone = request.getParameter("phone");
         String password = request.getParameter("password");
         String confPassword = request.getParameter("password_confirmation");
@@ -33,7 +33,10 @@ public class RegistrationServlet extends HttpServlet {
         if(AccountDB.selectByLogin(login) != null){
             request.setAttribute("message", "Пользователь с таким логином существует");
             getServletContext().getRequestDispatcher("/view/registration.jsp").forward(request,response);
-
+        }
+        if(!phone.matches("^((8|\\+375)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$")){
+            request.setAttribute("message", "Не правильный номер");
+            getServletContext().getRequestDispatcher("/view/registration.jsp").forward(request,response);
         }
         Account account = new Account();
         account.setPassword(password);

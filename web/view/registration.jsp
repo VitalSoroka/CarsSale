@@ -34,16 +34,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/start">Car Sale</a>
+                <a class="navbar-brand" href="#">Car Sale</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="#">Home</a></li>
-                    <li class=""><a href="#">Locations</a></li>
-                    <li class=""><a href="#">About</a></li>
+                    <li class=""><a href="/start">Home</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/login" data-toggle="modal" data-target='#modalRegister'>Account</a></li>
+                    <li><a href="/login" data-toggle="modal" data-target='#modalRegister'>Sign In</a></li>
                 </ul>
 
             </div>
@@ -84,7 +82,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
+                            <input type="text" name="login" id="login" class="form-control input-sm" placeholder="Login">
                         </div>
                         <div class="form-group">
                             <input type="text" name="phone" id="phone" class="form-control input-sm" placeholder="Phone">

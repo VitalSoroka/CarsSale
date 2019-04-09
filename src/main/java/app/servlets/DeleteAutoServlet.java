@@ -23,9 +23,8 @@ public class DeleteAutoServlet extends HttpServlet {
             }
             if(account.getPassword().hashCode() == Integer.parseInt(request.getParameter("password"))){
                 AutoDB.delete(autoId);
-                request.setAttribute("password", request.getParameter("password"));
-                request.setAttribute("account_id", request.getParameter("account_id"));
-                getServletContext().getRequestDispatcher("/view/myAuto.jsp").forward(request,response);
+                response.sendRedirect( request.getContextPath()+"/myAuto?account_id="+account.getAccountId()+
+                        "&password="+account.getPassword().hashCode());
             }
         }
         else {
