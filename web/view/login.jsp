@@ -10,8 +10,8 @@
 <html>
 <head>
     <title>Title</title>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link href="styles.css" rel="stylesheet">
     <style>
@@ -57,7 +57,7 @@
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Вход в аккаунт</h3>
+                    <h3 class="panel-title">Sign In</h3>
                 </div>
                 <div class="panel-body">
                     <form role="form" method="post" action="/login">
