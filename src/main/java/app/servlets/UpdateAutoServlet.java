@@ -50,6 +50,7 @@ public class UpdateAutoServlet extends HttpServlet {
                             Integer.parseInt(sMileage), typeFuel, Integer.parseInt(sEnginePower),
                             Double.parseDouble(sEngineVolume), driveUnit, transmission, userId, Integer.parseInt(sBrandId));
                     auto.setAutoId(Integer.parseInt(request.getParameter("auto_id")));
+                    AutoDB.update(auto);
                 }
                 catch (NumberFormatException ex){
                     ArrayList<Brand> brands = BrandDB.select();
