@@ -67,7 +67,7 @@
                             </c:if>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="login" id="email" class="form-control input-sm" placeholder="Email Address">
+                            <input type="text" name="login" id="text" class="form-control input-sm" placeholder="Login">
                         </div>
 
 
